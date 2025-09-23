@@ -9,34 +9,34 @@ import * as Speech from 'expo-speech';
 import Icon from '../components/Icon';
 
 const arabicLetters = [
-  { letter: 'ا', name: 'Alif', pronunciation: 'alif', sound: 'aa' },
-  { letter: 'ب', name: 'Baa', pronunciation: 'baa', sound: 'ba' },
-  { letter: 'ت', name: 'Taa', pronunciation: 'taa', sound: 'ta' },
-  { letter: 'ث', name: 'Thaa', pronunciation: 'thaa', sound: 'tha' },
-  { letter: 'ج', name: 'Jeem', pronunciation: 'jeem', sound: 'ja' },
-  { letter: 'ح', name: 'Haa', pronunciation: 'haa', sound: 'ha' },
-  { letter: 'خ', name: 'Khaa', pronunciation: 'khaa', sound: 'kha' },
-  { letter: 'د', name: 'Daal', pronunciation: 'daal', sound: 'da' },
-  { letter: 'ذ', name: 'Dhaal', pronunciation: 'dhaal', sound: 'dha' },
-  { letter: 'ر', name: 'Raa', pronunciation: 'raa', sound: 'ra' },
-  { letter: 'ز', name: 'Zaay', pronunciation: 'zaay', sound: 'za' },
-  { letter: 'س', name: 'Seen', pronunciation: 'seen', sound: 'sa' },
-  { letter: 'ش', name: 'Sheen', pronunciation: 'sheen', sound: 'sha' },
-  { letter: 'ص', name: 'Saad', pronunciation: 'saad', sound: 'sa' },
-  { letter: 'ض', name: 'Daad', pronunciation: 'daad', sound: 'da' },
-  { letter: 'ط', name: 'Taa', pronunciation: 'taa', sound: 'ta' },
-  { letter: 'ظ', name: 'Dhaa', pronunciation: 'dhaa', sound: 'dha' },
-  { letter: 'ع', name: 'Ayn', pronunciation: 'ayn', sound: 'a' },
-  { letter: 'غ', name: 'Ghayn', pronunciation: 'ghayn', sound: 'gha' },
-  { letter: 'ف', name: 'Faa', pronunciation: 'faa', sound: 'fa' },
-  { letter: 'ق', name: 'Qaaf', pronunciation: 'qaaf', sound: 'qa' },
-  { letter: 'ك', name: 'Kaaf', pronunciation: 'kaaf', sound: 'ka' },
-  { letter: 'ل', name: 'Laam', pronunciation: 'laam', sound: 'la' },
-  { letter: 'م', name: 'Meem', pronunciation: 'meem', sound: 'ma' },
-  { letter: 'ن', name: 'Noon', pronunciation: 'noon', sound: 'na' },
-  { letter: 'ه', name: 'Haa', pronunciation: 'haa', sound: 'ha' },
-  { letter: 'و', name: 'Waaw', pronunciation: 'waaw', sound: 'wa' },
-  { letter: 'ي', name: 'Yaa', pronunciation: 'yaa', sound: 'ya' },
+  { letter: 'ا', name: 'Alif', pronunciation: 'alif', sound: 'aa', improvedSound: 'ʾalif' },
+  { letter: 'ب', name: 'Baa', pronunciation: 'baa', sound: 'ba', improvedSound: 'baːʾ' },
+  { letter: 'ت', name: 'Taa', pronunciation: 'taa', sound: 'ta', improvedSound: 'taːʾ' },
+  { letter: 'ث', name: 'Thaa', pronunciation: 'thaa', sound: 'tha', improvedSound: 'θaːʾ' },
+  { letter: 'ج', name: 'Jeem', pronunciation: 'jeem', sound: 'ja', improvedSound: 'dʒiːm' },
+  { letter: 'ح', name: 'Haa', pronunciation: 'haa', sound: 'ha', improvedSound: 'ħaːʾ' },
+  { letter: 'خ', name: 'Khaa', pronunciation: 'khaa', sound: 'kha', improvedSound: 'xaːʾ' },
+  { letter: 'د', name: 'Daal', pronunciation: 'daal', sound: 'da', improvedSound: 'daːl' },
+  { letter: 'ذ', name: 'Dhaal', pronunciation: 'dhaal', sound: 'dha', improvedSound: 'ðaːl' },
+  { letter: 'ر', name: 'Raa', pronunciation: 'raa', sound: 'ra', improvedSound: 'raːʾ' },
+  { letter: 'ز', name: 'Zaay', pronunciation: 'zaay', sound: 'za', improvedSound: 'zaːy' },
+  { letter: 'س', name: 'Seen', pronunciation: 'seen', sound: 'sa', improvedSound: 'siːn' },
+  { letter: 'ش', name: 'Sheen', pronunciation: 'sheen', sound: 'sha', improvedSound: 'ʃiːn' },
+  { letter: 'ص', name: 'Saad', pronunciation: 'saad', sound: 'sa', improvedSound: 'sˤaːd' },
+  { letter: 'ض', name: 'Daad', pronunciation: 'daad', sound: 'da', improvedSound: 'dˤaːd' },
+  { letter: 'ط', name: 'Taa', pronunciation: 'taa', sound: 'ta', improvedSound: 'tˤaːʾ' },
+  { letter: 'ظ', name: 'Dhaa', pronunciation: 'dhaa', sound: 'dha', improvedSound: 'ðˤaːʾ' },
+  { letter: 'ع', name: 'Ayn', pronunciation: 'ayn', sound: 'a', improvedSound: 'ʕayn' },
+  { letter: 'غ', name: 'Ghayn', pronunciation: 'ghayn', sound: 'gha', improvedSound: 'ɣayn' },
+  { letter: 'ف', name: 'Faa', pronunciation: 'faa', sound: 'fa', improvedSound: 'faːʾ' },
+  { letter: 'ق', name: 'Qaaf', pronunciation: 'qaaf', sound: 'qa', improvedSound: 'qaːf' },
+  { letter: 'ك', name: 'Kaaf', pronunciation: 'kaaf', sound: 'ka', improvedSound: 'kaːf' },
+  { letter: 'ل', name: 'Laam', pronunciation: 'laam', sound: 'la', improvedSound: 'laːm' },
+  { letter: 'م', name: 'Meem', pronunciation: 'meem', sound: 'ma', improvedSound: 'miːm' },
+  { letter: 'ن', name: 'Noon', pronunciation: 'noon', sound: 'na', improvedSound: 'nuːn' },
+  { letter: 'ه', name: 'Haa', pronunciation: 'haa', sound: 'ha', improvedSound: 'haːʾ' },
+  { letter: 'و', name: 'Waaw', pronunciation: 'waaw', sound: 'wa', improvedSound: 'waːw' },
+  { letter: 'ي', name: 'Yaa', pronunciation: 'yaa', sound: 'ya', improvedSound: 'yaːʾ' },
 ];
 
 export default function LearnAlphabetScreen() {
@@ -65,21 +65,33 @@ export default function LearnAlphabetScreen() {
       }),
     ]).start();
 
-    // Use text-to-speech for Arabic pronunciation
+    // Enhanced Arabic pronunciation with better settings
     try {
-      await Speech.speak(letter.sound, {
-        language: 'ar',
-        pitch: 1.0,
-        rate: 0.8,
+      // First try with improved Arabic pronunciation
+      await Speech.speak(letter.letter, {
+        language: 'ar-SA', // Saudi Arabic for better Quranic pronunciation
+        pitch: 0.9,
+        rate: 0.6, // Slower for better learning
+        quality: 'enhanced',
       });
     } catch (error) {
-      console.log('Speech error, using fallback:', error);
-      // Fallback to English pronunciation
-      await Speech.speak(letter.pronunciation, {
-        language: 'en',
-        pitch: 1.0,
-        rate: 0.8,
-      });
+      console.log('Enhanced Arabic speech error, trying standard Arabic:', error);
+      try {
+        // Fallback to standard Arabic
+        await Speech.speak(letter.letter, {
+          language: 'ar',
+          pitch: 0.9,
+          rate: 0.6,
+        });
+      } catch (error2) {
+        console.log('Standard Arabic speech error, using phonetic pronunciation:', error2);
+        // Final fallback to phonetic pronunciation
+        await Speech.speak(letter.improvedSound || letter.pronunciation, {
+          language: 'en',
+          pitch: 0.8,
+          rate: 0.7,
+        });
+      }
     }
   };
 

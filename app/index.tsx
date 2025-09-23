@@ -172,6 +172,25 @@ export default function HomeScreen() {
             Every letter you learn brings you closer to understanding the Qur'an.
           </Text>
         </View>
+
+        {/* Made by Hamzah Alfarra */}
+        <View style={{
+          backgroundColor: colors.lightBlue,
+          marginHorizontal: 20,
+          marginBottom: 20,
+          borderRadius: 12,
+          padding: 16,
+          alignItems: 'center',
+        }}>
+          <Text style={[commonStyles.text, { 
+            fontSize: 14, 
+            color: colors.textLight, 
+            fontStyle: 'italic',
+            textAlign: 'center'
+          }]}>
+            Made by Hamzah Alfarra
+          </Text>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

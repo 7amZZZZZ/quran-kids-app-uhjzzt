@@ -16,43 +16,50 @@ const surahs = {
         arabic: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',
         transliteration: 'Bismillahi r-rahmani r-raheem',
         translation: 'In the name of Allah, the Most Gracious, the Most Merciful',
-        words: ['بِسْمِ', 'اللَّهِ', 'الرَّحْمَٰنِ', 'الرَّحِيمِ']
+        words: ['بِسْمِ', 'اللَّهِ', 'الرَّحْمَٰنِ', 'الرَّحِيمِ'],
+        phonetic: 'bis.mil.laː.hir.raħ.maː.nir.ra.ħiːm'
       },
       {
         arabic: 'الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ',
         transliteration: 'Alhamdu lillahi rabbi l-alameen',
         translation: 'All praise is due to Allah, Lord of all the worlds',
-        words: ['الْحَمْدُ', 'لِلَّهِ', 'رَبِّ', 'الْعَالَمِينَ']
+        words: ['الْحَمْدُ', 'لِلَّهِ', 'رَبِّ', 'الْعَالَمِينَ'],
+        phonetic: 'ʔal.ħam.du lil.laː.hi rab.bil.ʕaː.la.miːn'
       },
       {
         arabic: 'الرَّحْمَٰنِ الرَّحِيمِ',
         transliteration: 'Ar-rahmani r-raheem',
         translation: 'The Most Gracious, the Most Merciful',
-        words: ['الرَّحْمَٰنِ', 'الرَّحِيمِ']
+        words: ['الرَّحْمَٰنِ', 'الرَّحِيمِ'],
+        phonetic: 'ʔar.raħ.maː.nir.ra.ħiːm'
       },
       {
         arabic: 'مَالِكِ يَوْمِ الدِّينِ',
         transliteration: 'Maliki yawmi d-deen',
         translation: 'Master of the Day of Judgment',
-        words: ['مَالِكِ', 'يَوْمِ', 'الدِّينِ']
+        words: ['مَالِكِ', 'يَوْمِ', 'الدِّينِ'],
+        phonetic: 'maː.li.ki yaw.mid.diːn'
       },
       {
         arabic: 'إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ',
         transliteration: 'Iyyaka na\'budu wa iyyaka nasta\'een',
         translation: 'You alone we worship, and You alone we ask for help',
-        words: ['إِيَّاكَ', 'نَعْبُدُ', 'وَإِيَّاكَ', 'نَسْتَعِينُ']
+        words: ['إِيَّاكَ', 'نَعْبُدُ', 'وَإِيَّاكَ', 'نَسْتَعِينُ'],
+        phonetic: 'ʔiy.yaː.ka naʕ.bu.du wa ʔiy.yaː.ka nas.ta.ʕiːn'
       },
       {
         arabic: 'اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ',
         transliteration: 'Ihdina s-sirata l-mustaqeem',
         translation: 'Guide us on the straight path',
-        words: ['اهْدِنَا', 'الصِّرَاطَ', 'الْمُسْتَقِيمَ']
+        words: ['اهْدِنَا', 'الصِّرَاطَ', 'الْمُسْتَقِيمَ'],
+        phonetic: 'ʔih.di.naːs.si.raː.tal.mus.ta.qiːm'
       },
       {
         arabic: 'صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ',
         transliteration: 'Sirata l-ladhina an\'amta \'alayhim ghayri l-maghdubi \'alayhim wa la d-dalleen',
         translation: 'The path of those You have blessed, not of those who have incurred Your wrath, nor of those who have gone astray',
-        words: ['صِرَاطَ', 'الَّذِينَ', 'أَنْعَمْتَ', 'عَلَيْهِمْ', 'غَيْرِ', 'الْمَغْضُوبِ', 'عَلَيْهِمْ', 'وَلَا', 'الضَّالِّينَ']
+        words: ['صِرَاطَ', 'الَّذِينَ', 'أَنْعَمْتَ', 'عَلَيْهِمْ', 'غَيْرِ', 'الْمَغْضُوبِ', 'عَلَيْهِمْ', 'وَلَا', 'الضَّالِّينَ'],
+        phonetic: 'si.raː.tal.la.ðiː.na ʔan.ʕam.ta ʕa.lay.him ɣay.ril.maɣ.duː.bi ʕa.lay.him wa.laːd.dˤaːl.liːn'
       }
     ]
   },
@@ -64,31 +71,36 @@ const surahs = {
         arabic: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',
         transliteration: 'Bismillahi r-rahmani r-raheem',
         translation: 'In the name of Allah, the Most Gracious, the Most Merciful',
-        words: ['بِسْمِ', 'اللَّهِ', 'الرَّحْمَٰنِ', 'الرَّحِيمِ']
+        words: ['بِسْمِ', 'اللَّهِ', 'الرَّحْمَٰنِ', 'الرَّحِيمِ'],
+        phonetic: 'bis.mil.laː.hir.raħ.maː.nir.ra.ħiːm'
       },
       {
         arabic: 'قُلْ هُوَ اللَّهُ أَحَدٌ',
         transliteration: 'Qul huwa Allahu ahad',
         translation: 'Say: He is Allah, the One',
-        words: ['قُلْ', 'هُوَ', 'اللَّهُ', 'أَحَدٌ']
+        words: ['قُلْ', 'هُوَ', 'اللَّهُ', 'أَحَدٌ'],
+        phonetic: 'qul hu.wal.laː.hu ʔa.ħad'
       },
       {
         arabic: 'اللَّهُ الصَّمَدُ',
         transliteration: 'Allahu s-samad',
         translation: 'Allah, the Eternal, Absolute',
-        words: ['اللَّهُ', 'الصَّمَدُ']
+        words: ['اللَّهُ', 'الصَّمَدُ'],
+        phonetic: 'ʔal.laː.hus.sˤa.mad'
       },
       {
         arabic: 'لَمْ يَلِدْ وَلَمْ يُولَدْ',
         transliteration: 'Lam yalid wa lam yulad',
         translation: 'He begets not, nor is He begotten',
-        words: ['لَمْ', 'يَلِدْ', 'وَلَمْ', 'يُولَدْ']
+        words: ['لَمْ', 'يَلِدْ', 'وَلَمْ', 'يُولَدْ'],
+        phonetic: 'lam ya.lid wa.lam yu.lad'
       },
       {
         arabic: 'وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ',
         transliteration: 'Wa lam yakun lahu kufuwan ahad',
         translation: 'And there is none comparable to Him',
-        words: ['وَلَمْ', 'يَكُن', 'لَّهُ', 'كُفُوًا', 'أَحَدٌ']
+        words: ['وَلَمْ', 'يَكُن', 'لَّهُ', 'كُفُوًا', 'أَحَدٌ'],
+        phonetic: 'wa.lam ya.kun la.hu ku.fu.wan ʔa.ħad'
       }
     ]
   }
@@ -108,30 +120,62 @@ export default function ReadSurahScreen() {
     setSelectedWord(word);
     
     try {
+      // Enhanced Arabic pronunciation with better settings
       await Speech.speak(word, {
-        language: 'ar',
-        pitch: 1.0,
-        rate: 0.7,
+        language: 'ar-SA', // Saudi Arabic for better Quranic pronunciation
+        pitch: 0.85,
+        rate: 0.5, // Very slow for learning
+        quality: 'enhanced',
       });
     } catch (error) {
-      console.log('Speech error:', error);
+      console.log('Enhanced Arabic speech error, trying standard Arabic:', error);
+      try {
+        // Fallback to standard Arabic
+        await Speech.speak(word, {
+          language: 'ar',
+          pitch: 0.85,
+          rate: 0.5,
+        });
+      } catch (error2) {
+        console.log('Standard Arabic speech error:', error2);
+      }
     }
     
     // Clear selection after a delay
     setTimeout(() => setSelectedWord(null), 1000);
   };
 
-  const playFullVerse = async (verse: string) => {
-    console.log('Playing full verse:', verse);
+  const playFullVerse = async (verse: any) => {
+    console.log('Playing full verse:', verse.arabic);
     
     try {
-      await Speech.speak(verse, {
-        language: 'ar',
-        pitch: 1.0,
-        rate: 0.6,
+      // Enhanced Arabic pronunciation with better settings
+      await Speech.speak(verse.arabic, {
+        language: 'ar-SA', // Saudi Arabic for better Quranic pronunciation
+        pitch: 0.85,
+        rate: 0.4, // Very slow for learning
+        quality: 'enhanced',
       });
     } catch (error) {
-      console.log('Speech error:', error);
+      console.log('Enhanced Arabic speech error, trying standard Arabic:', error);
+      try {
+        // Fallback to standard Arabic
+        await Speech.speak(verse.arabic, {
+          language: 'ar',
+          pitch: 0.85,
+          rate: 0.4,
+        });
+      } catch (error2) {
+        console.log('Standard Arabic speech error, using phonetic pronunciation:', error2);
+        // Final fallback to phonetic pronunciation
+        if (verse.phonetic) {
+          await Speech.speak(verse.phonetic, {
+            language: 'en',
+            pitch: 0.8,
+            rate: 0.6,
+          });
+        }
+      }
     }
   };
 
@@ -292,6 +336,21 @@ export default function ReadSurahScreen() {
               {verse.transliteration}
             </Text>
 
+            {/* Phonetic Guide */}
+            {verse.phonetic && (
+              <Text style={[
+                commonStyles.text,
+                {
+                  textAlign: 'center',
+                  fontSize: 12,
+                  color: colors.textLight,
+                  marginBottom: 8,
+                }
+              ]}>
+                Phonetic: {verse.phonetic}
+              </Text>
+            )}
+
             {/* Translation */}
             <Text style={[
               commonStyles.text,
@@ -307,7 +366,7 @@ export default function ReadSurahScreen() {
             {/* Play Full Verse Button */}
             <TouchableOpacity
               style={[buttonStyles.secondaryButton, { backgroundColor: colors.secondary }]}
-              onPress={() => playFullVerse(verse.arabic)}
+              onPress={() => playFullVerse(verse)}
             >
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
                 <Icon name="play" size={20} color={colors.backgroundAlt} />

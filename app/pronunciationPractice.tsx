@@ -12,37 +12,43 @@ const practiceWords = [
     arabic: 'اللَّه',
     transliteration: 'Allah',
     meaning: 'God',
-    difficulty: 'easy'
+    difficulty: 'easy',
+    phonetic: 'ʔallaːh'
   },
   {
     arabic: 'السَّلَامُ عَلَيْكُمْ',
     transliteration: 'As-salamu alaykum',
     meaning: 'Peace be upon you',
-    difficulty: 'medium'
+    difficulty: 'medium',
+    phonetic: 'ʔas.sa.laː.mu ʕa.lay.kum'
   },
   {
     arabic: 'بِسْمِ اللَّهِ',
     transliteration: 'Bismillah',
     meaning: 'In the name of Allah',
-    difficulty: 'easy'
+    difficulty: 'easy',
+    phonetic: 'bis.mil.laːh'
   },
   {
     arabic: 'الْحَمْدُ لِلَّهِ',
     transliteration: 'Alhamdulillah',
     meaning: 'All praise is due to Allah',
-    difficulty: 'medium'
+    difficulty: 'medium',
+    phonetic: 'ʔal.ħam.du lil.laːh'
   },
   {
     arabic: 'سُبْحَانَ اللَّهِ',
     transliteration: 'Subhanallah',
     meaning: 'Glory be to Allah',
-    difficulty: 'medium'
+    difficulty: 'medium',
+    phonetic: 'sub.ħaː.nal.laːh'
   },
   {
     arabic: 'لَا إِلَٰهَ إِلَّا اللَّهُ',
     transliteration: 'La ilaha illa Allah',
     meaning: 'There is no god but Allah',
-    difficulty: 'hard'
+    difficulty: 'hard',
+    phonetic: 'laː ʔi.laː.ha ʔil.lal.laːh'
   }
 ];
 
@@ -62,19 +68,31 @@ export default function PronunciationPracticeScreen() {
     console.log('Playing target word:', word.arabic);
     
     try {
+      // Enhanced Arabic pronunciation with better settings
       await Speech.speak(word.arabic, {
-        language: 'ar',
-        pitch: 1.0,
-        rate: 0.7,
+        language: 'ar-SA', // Saudi Arabic for better Quranic pronunciation
+        pitch: 0.85,
+        rate: 0.5, // Very slow for learning
+        quality: 'enhanced',
       });
     } catch (error) {
-      console.log('Speech error:', error);
-      // Fallback to transliteration
-      await Speech.speak(word.transliteration, {
-        language: 'en',
-        pitch: 1.0,
-        rate: 0.8,
-      });
+      console.log('Enhanced Arabic speech error, trying standard Arabic:', error);
+      try {
+        // Fallback to standard Arabic
+        await Speech.speak(word.arabic, {
+          language: 'ar',
+          pitch: 0.85,
+          rate: 0.5,
+        });
+      } catch (error2) {
+        console.log('Standard Arabic speech error, using phonetic pronunciation:', error2);
+        // Final fallback to phonetic pronunciation
+        await Speech.speak(word.phonetic || word.transliteration, {
+          language: 'en',
+          pitch: 0.8,
+          rate: 0.6,
+        });
+      }
     }
   };
 
@@ -216,6 +234,13 @@ export default function PronunciationPracticeScreen() {
             {currentWord.transliteration}
           </Text>
 
+          {/* Phonetic Guide */}
+          {currentWord.phonetic && (
+            <Text style={[commonStyles.text, { fontSize: 14, color: colors.textLight, marginBottom: 8 }]}>
+              Phonetic: {currentWord.phonetic}
+            </Text>
+          )}
+
           {/* Meaning */}
           <Text style={[commonStyles.text, { fontSize: 16, color: colors.textLight, marginBottom: 20 }]}>
             Meaning: {currentWord.meaning}
@@ -343,7 +368,8 @@ export default function PronunciationPracticeScreen() {
             • Listen carefully to the example pronunciation{'\n'}
             • Speak clearly into your microphone{'\n'}
             • Take your time - accuracy is more important than speed{'\n'}
-            • Practice regularly to improve your recitation
+            • Practice regularly to improve your recitation{'\n'}
+            • Use the phonetic guide to help with difficult sounds
           </Text>
         </View>
       </ScrollView>
