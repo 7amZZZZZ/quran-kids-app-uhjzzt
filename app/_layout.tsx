@@ -1,3 +1,4 @@
+
 import { Stack, useGlobalSearchParams } from 'expo-router';
 import { SafeAreaProvider, useSafeAreaInsets, SafeAreaView } from 'react-native-safe-area-context';
 import { Platform } from 'react-native';
@@ -50,9 +51,16 @@ export default function RootLayout() {
           <Stack
             screenOptions={{
               headerShown: false,
-              animation: 'default',
+              animation: 'slide_from_right',
+              animationDuration: 300,
             }}
-          />
+          >
+            <Stack.Screen name="index" />
+            <Stack.Screen name="learnAlphabet" />
+            <Stack.Screen name="readSurah" />
+            <Stack.Screen name="pronunciationPractice" />
+            <Stack.Screen name="progress" />
+          </Stack>
         </GestureHandlerRootView>
     </SafeAreaProvider>
   );
