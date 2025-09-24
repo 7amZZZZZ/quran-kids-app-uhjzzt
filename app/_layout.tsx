@@ -5,6 +5,7 @@ import { Platform } from 'react-native';
 import { useEffect, useState } from 'react';
 import { setupErrorLogging } from '../utils/errorLogger';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { LanguageProvider } from '../contexts/LanguageContext';
 
 const STORAGE_KEY = 'emulated_device';
 
@@ -47,6 +48,7 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
+      <LanguageProvider>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <Stack
             screenOptions={{
@@ -60,8 +62,11 @@ export default function RootLayout() {
             <Stack.Screen name="readSurah" />
             <Stack.Screen name="pronunciationPractice" />
             <Stack.Screen name="progress" />
+            <Stack.Screen name="readingChapters" />
+            <Stack.Screen name="chapterDetail" />
           </Stack>
         </GestureHandlerRootView>
+      </LanguageProvider>
     </SafeAreaProvider>
   );
 }

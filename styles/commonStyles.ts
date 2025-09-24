@@ -182,4 +182,19 @@ export const commonStyles = StyleSheet.create({
     textAlign: 'center',
     flex: 1,
   },
+  // RTL Support Styles
+  rtlText: {
+    textAlign: 'right',
+    writingDirection: 'rtl',
+  },
+  ltrText: {
+    textAlign: 'left',
+    writingDirection: 'ltr',
+  },
+  rtlRow: {
+    flexDirection: 'row-reverse',
+  },
+  ltrRow: {
+    flexDirection: 'row',
+  },
 });

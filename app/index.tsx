@@ -7,6 +7,7 @@ import { router } from 'expo-router';
 import { useFonts, Amiri_400Regular, Amiri_700Bold } from '@expo-google-fonts/amiri';
 import * as SplashScreen from 'expo-splash-screen';
 import Icon from '../components/Icon';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -16,6 +17,8 @@ export default function HomeScreen() {
     Amiri_400Regular,
     Amiri_700Bold,
   });
+
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     if (fontsLoaded) {
@@ -47,6 +50,19 @@ export default function HomeScreen() {
     router.push('/progress');
   };
 
+  const navigateToReadingChapters = () => {
+    console.log('Navigating to Reading Chapters');
+    router.push('/readingChapters');
+  };
+
+  const toggleLanguage = () => {
+    const newLanguage = language === 'en' ? 'ar' : 'en';
+    setLanguage(newLanguage);
+    console.log('Language toggled to:', newLanguage);
+  };
+
+  const isRTL = language === 'ar';
+
   return (
     <SafeAreaView style={commonStyles.container}>
       <ScrollView 
@@ -54,16 +70,51 @@ export default function HomeScreen() {
         contentContainerStyle={{ flexGrow: 1 }}
         showsVerticalScrollIndicator={false}
       >
+        {/* Language Toggle */}
+        <View style={{
+          flexDirection: isRTL ? 'row-reverse' : 'row',
+          justifyContent: 'flex-end',
+          paddingHorizontal: 20,
+          paddingTop: 10,
+        }}>
+          <TouchableOpacity
+            onPress={toggleLanguage}
+            style={{
+              backgroundColor: colors.lightBlue,
+              paddingHorizontal: 16,
+              paddingVertical: 8,
+              borderRadius: 20,
+            }}
+          >
+            <Text style={{
+              color: colors.primary,
+              fontSize: 14,
+              fontWeight: '600'
+            }}>
+              {language === 'en' ? 'عربي' : 'EN'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+
         {/* Header Section */}
         <View style={commonStyles.homeHeader}>
-          <Text style={commonStyles.arabicTitle}>
+          <Text style={[
+            commonStyles.arabicTitle,
+            {
+              textAlign: 'center',
+              writingDirection: 'rtl',
+            }
+          ]}>
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </Text>
           <Text style={[commonStyles.title, { color: colors.primary, marginTop: 16 }]}>
-            Learn to Read the Qur'an
+            {language === 'en' ? 'Learn to Read the Qur\'an' : 'تعلم قراءة القرآن'}
           </Text>
           <Text style={[commonStyles.text, { fontSize: 18, color: colors.textLight, textAlign: 'center', marginTop: 8 }]}>
-            Step by step — from letters to beautiful recitation!
+            {language === 'en' 
+              ? 'Step by step — from letters to beautiful recitation!' 
+              : 'خطوة بخطوة — من الحروف إلى التلاوة الجميلة!'
+            }
           </Text>
         </View>
 
@@ -75,11 +126,19 @@ export default function HomeScreen() {
           padding: 20,
           marginBottom: 30,
         }}>
-          <Text style={[commonStyles.arabicText, { fontSize: 20, color: colors.primary }]}>
+          <Text style={[
+            commonStyles.arabicText, 
+            { 
+              fontSize: 20, 
+              color: colors.primary,
+              textAlign: 'center',
+              writingDirection: 'rtl',
+            }
+          ]}>
             وَعَلَّمَ آدَمَ الْأَسْمَاءَ كُلَّهَا
           </Text>
           <Text style={[commonStyles.text, { fontSize: 14, fontStyle: 'italic', marginTop: 8 }]}>
-            "And He taught Adam all the names"
+            {language === 'en' ? '"And He taught Adam all the names"' : '"وعلم آدم الأسماء كلها"'}
           </Text>
         </View>
 
@@ -90,31 +149,63 @@ export default function HomeScreen() {
             onPress={navigateToAlphabet}
             activeOpacity={0.8}
           >
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+            <View style={{ 
+              flexDirection: isRTL ? 'row-reverse' : 'row', 
+              alignItems: 'center', 
+              gap: 12 
+            }}>
               <Icon name="library-outline" size={24} color={colors.backgroundAlt} />
               <Text style={{
                 color: colors.backgroundAlt,
                 fontSize: 18,
                 fontWeight: '700',
+                fontFamily: isRTL ? 'Amiri_700Bold' : undefined,
               }}>
-                Learn the Alphabet
+                {language === 'en' ? 'Learn the Alphabet' : 'تعلم الأبجدية'}
               </Text>
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={[buttonStyles.secondaryButton, { backgroundColor: colors.secondary }]}
+            onPress={navigateToReadingChapters}
+            activeOpacity={0.8}
+          >
+            <View style={{ 
+              flexDirection: isRTL ? 'row-reverse' : 'row', 
+              alignItems: 'center', 
+              gap: 12 
+            }}>
+              <Icon name="book-outline" size={24} color={colors.backgroundAlt} />
+              <Text style={{
+                color: colors.backgroundAlt,
+                fontSize: 18,
+                fontWeight: '700',
+                fontFamily: isRTL ? 'Amiri_700Bold' : undefined,
+              }}>
+                {language === 'en' ? 'Reading Chapters' : 'فصول القراءة'}
+              </Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[buttonStyles.secondaryButton, { backgroundColor: colors.warning }]}
             onPress={navigateToPronunciation}
             activeOpacity={0.8}
           >
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+            <View style={{ 
+              flexDirection: isRTL ? 'row-reverse' : 'row', 
+              alignItems: 'center', 
+              gap: 12 
+            }}>
               <Icon name="mic-outline" size={24} color={colors.backgroundAlt} />
               <Text style={{
                 color: colors.backgroundAlt,
                 fontSize: 18,
                 fontWeight: '700',
+                fontFamily: isRTL ? 'Amiri_700Bold' : undefined,
               }}>
-                Pronunciation Practice
+                {language === 'en' ? 'Pronunciation Practice' : 'تدريب النطق'}
               </Text>
             </View>
           </TouchableOpacity>
@@ -124,14 +215,19 @@ export default function HomeScreen() {
             onPress={navigateToSurah}
             activeOpacity={0.8}
           >
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+            <View style={{ 
+              flexDirection: isRTL ? 'row-reverse' : 'row', 
+              alignItems: 'center', 
+              gap: 12 
+            }}>
               <Icon name="book-outline" size={24} color={colors.text} />
               <Text style={{
                 color: colors.text,
                 fontSize: 18,
                 fontWeight: '700',
+                fontFamily: isRTL ? 'Amiri_700Bold' : undefined,
               }}>
-                Read a Surah
+                {language === 'en' ? 'Read a Surah' : 'اقرأ سورة'}
               </Text>
             </View>
           </TouchableOpacity>
@@ -141,14 +237,19 @@ export default function HomeScreen() {
             onPress={navigateToProgress}
             activeOpacity={0.8}
           >
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+            <View style={{ 
+              flexDirection: isRTL ? 'row-reverse' : 'row', 
+              alignItems: 'center', 
+              gap: 12 
+            }}>
               <Icon name="star-outline" size={24} color={colors.text} />
               <Text style={{
                 color: colors.text,
                 fontSize: 18,
                 fontWeight: '700',
+                fontFamily: isRTL ? 'Amiri_700Bold' : undefined,
               }}>
-                My Progress
+                {language === 'en' ? 'My Progress' : 'تقدمي'}
               </Text>
             </View>
           </TouchableOpacity>
@@ -165,11 +266,35 @@ export default function HomeScreen() {
           borderWidth: 1,
           borderColor: colors.accent,
         }}>
-          <Text style={[commonStyles.text, { color: colors.primary, fontWeight: '600', fontSize: 16 }]}>
-            🌟 Start your beautiful journey of learning Arabic today!
+          <Text style={[
+            commonStyles.text, 
+            { 
+              color: colors.primary, 
+              fontWeight: '600', 
+              fontSize: 16,
+              textAlign: isRTL ? 'right' : 'left',
+              fontFamily: isRTL ? 'Amiri_700Bold' : undefined,
+            }
+          ]}>
+            {language === 'en' 
+              ? '🌟 Start your beautiful journey of learning Arabic today!' 
+              : '🌟 ابدأ رحلتك الجميلة في تعلم العربية اليوم!'
+            }
           </Text>
-          <Text style={[commonStyles.text, { fontSize: 14, marginTop: 8, color: colors.textLight }]}>
-            Every letter you learn brings you closer to understanding the Qur'an.
+          <Text style={[
+            commonStyles.text, 
+            { 
+              fontSize: 14, 
+              marginTop: 8, 
+              color: colors.textLight,
+              textAlign: isRTL ? 'right' : 'left',
+              fontFamily: isRTL ? 'Amiri_400Regular' : undefined,
+            }
+          ]}>
+            {language === 'en'
+              ? 'Every letter you learn brings you closer to understanding the Qur\'an.'
+              : 'كل حرف تتعلمه يقربك من فهم القرآن.'
+            }
           </Text>
         </View>
 
@@ -188,7 +313,7 @@ export default function HomeScreen() {
             fontStyle: 'italic',
             textAlign: 'center'
           }]}>
-            Made by Hamzah Alfarra
+            {language === 'en' ? 'Made by Hamzah Alfarra' : 'صنع بواسطة حمزة الفرا'}
           </Text>
         </View>
       </ScrollView>
